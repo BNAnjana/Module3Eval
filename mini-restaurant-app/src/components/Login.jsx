@@ -12,10 +12,10 @@ export default function Login() {
     e.preventDefault();
         if (email === "admin@gmail.com" && password === "admin1234") {
            login("admin", email);
-          navigate("/admin/dashboard");
+          navigate("/pages/AdminDashboard");
         } else if (email === "customer@gmail.com" && password === "customer1234") {
            login("customer", email);
-          navigate("/customers/dashboard");
+          navigate("/pages/CustomerDashboard");
         } else {
           alert("Wrong email or password!");
         }
