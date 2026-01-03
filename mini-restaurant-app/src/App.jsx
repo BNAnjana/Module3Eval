@@ -1,7 +1,10 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Login from "./Login";
-import Admin from "./admin/dashboard";
-import Customer from "./customers/dashboard";
+import { useContext } from "react";
+import Login from "./components/Login";
+import AdminDashboard from "./pages/AdminDashboard";
+import CustomerDashboard from "./pages/CustomerDashboard";
+import UpdateRestaurant from "./pages/UpdateRestaurant";
+import AuthContext from "./context/AuthContext";
 
 function PrivateRoute({ children, role }) {
   const { user } = useContext(AuthContext);
@@ -11,14 +14,14 @@ function PrivateRoute({ children, role }) {
 }
 
 function App() {
-
   return (
     <>
     <BrowserRouter>
     <Routes>
-      <Route path ="/admin/dashboard" element ={<Admin/>}/>
-      <Route path ="/customers/dashboard" element ={<Customer/>}/>
-      <Route path = "/login" element={<Login />}/>
+      <Route path ="/" element ={<Login />} />
+      <Route path ="/pages/AdminDashboard" element = {<PrivateRoute role="admin"><AdminDashboard /></PrivateRoute>}/>
+      <Route path ="/pages/CustomerDashboard" element = {<PrivateRoute role="admin"><CustomerDashboard /></PrivateRoute>}/>
+      <Route path = "/pages/UpdateRestaurant" element = {<PrivateRoute role="admin"><UpdateRestaurant /></PrivateRoute>}/>
     </Routes>
     </BrowserRouter>
     </>
