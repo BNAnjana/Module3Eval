@@ -20,7 +20,7 @@ function App() {
     <Routes>
       <Route path ="/" element ={<Login />} />
       <Route path ="/pages/AdminDashboard" element = {<PrivateRoute role="admin"><AdminDashboard /></PrivateRoute>}/>
-      <Route path ="/pages/CustomerDashboard" element = {<PrivateRoute role="admin"><CustomerDashboard /></PrivateRoute>}/>
+      <Route path ="/pages/CustomerDashboard" element = {<PrivateRoute role="customer"><CustomerDashboard /></PrivateRoute>}/>
       <Route path = "/pages/UpdateRestaurant" element = {<PrivateRoute role="admin"><UpdateRestaurant /></PrivateRoute>}/>
     </Routes>
     </BrowserRouter>
